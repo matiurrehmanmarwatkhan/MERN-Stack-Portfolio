@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-violet: #0ea5e9;
+  --color-brand-indigo: #0284c7;
+  --color-brand-emerald: #38bdf8;
+}
+
+/* Custom Base Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #18181b;
+  border-radius: 9999px;
+  border: 2px solid #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e4e4e7;
+  border-radius: 9999px;
+  border: 2px solid #f4f4f5;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #27272a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4d4d8;
+}
+
+/* Smooth Scrolling Anchor Behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Presets with Bento Borders */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(228, 228, 231, 0.8);
+}
+
+.dark .glass-panel {
+  background: rgba(18, 18, 21, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(39, 39, 42, 0.6);
+}
+
+.glass-pill {
+  background: rgba(244, 244, 245, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(228, 228, 231, 0.7);
+}
+
+.dark .glass-pill {
+  background: rgba(24, 24, 27, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(39, 39, 42, 0.5);
+}
+
+.sophisticated-glass {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(228, 228, 231, 0.6);
+}
+
+.dark .sophisticated-glass {
+  background: rgba(9, 9, 12, 0.4);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(39, 39, 42, 0.45);
+}
+
+/* Radial spotlight and ambient glows */
+.spotlight-glow {
+  background: radial-gradient(circle 600px at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(14, 165, 233, 0.08), transparent 85%);
+}
+
+.dark .spotlight-glow {
+  background: radial-gradient(circle 500px at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(56, 189, 248, 0.06), transparent 80%);
+}
+
+/* Continuously drifting gradient backgrounds */
+@keyframes drift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-drift-gradient {
+  background-size: 200% 200%;
+  animation: drift 15s ease infinite;
+}
+
+/* Pulsing background grid */
+.grid-lens {
+  background-image: 
+    linear-gradient(to right, rgba(161, 161, 170, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(161, 161, 170, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.dark .grid-lens {
+  background-image: 
+    linear-gradient(to right, rgba(63, 63, 70, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(63, 63, 70, 0.15) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Animations for timeline */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.timeline-glow::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, transparent, var(--color-brand-violet), transparent);
+  animation: scanline 4s linear infinite;
+}
+
+/* Custom typing cursor */
+.typing-cursor::after {
+  content: "|";
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
