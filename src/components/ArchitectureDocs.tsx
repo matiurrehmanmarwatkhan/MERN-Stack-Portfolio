@@ -390,7 +390,7 @@ export default mongoose.model('Contact', ContactSchema);`}
               <ul className="list-disc pl-5 text-xs text-zinc-300 space-y-2">
                 <li><strong>Shared Base & Glass Cards</strong>: High-contrast grid frames dynamically measuring dimensions via element resize observers.</li>
                 <li><strong>Contact Handlers</strong>: Employs <code>async/await</code> request cycles managing localized loading flags, returning feedback on state toasts.</li>
-                <li><strong>Resume Download Strategies</strong>: Instead of complex PDF pipelines, use a raw static <code>/public/Mati_Ur_Rehman_Resume.pdf</code> path, letting the client trigger an automated browser download payload leveraging the standard anchor <code>download</code> tag attributes.</li>
+                <li><strong>Resume Download Strategies</strong>: Instead of complex PDF pipelines, import the PDF CV directly using Vite asset loaders (<code>/assets/MERN Stack CV.pdf</code>) and bind it to the standard anchor <code>download</code> tag attributes.</li>
               </ul>
             </div>
           </div>

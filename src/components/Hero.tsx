@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ArrowDown, Mail, Github, Linkedin, Briefcase, FileText, MapPin, Globe } from "lucide-react";
 import { PERSONAL_INFO } from "../data";
+import cvPdf from "@/assets/MERN Stack CV.pdf";
 
 export const Hero: React.FC = () => {
   const [typedTitle, setTypedTitle] = useState("");
@@ -52,107 +53,7 @@ export const Hero: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // 3. Virtual PDF CV view/print action
-  const handlePrintResume = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const resumeHTML = `
-      <html>
-        <head>
-          <title>Mati Ur Rehman - Resume</title>
-          <style>
-            body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; line-height: 1.5; padding: 40px; max-width: 900px; margin: 0 auto; }
-            h1 { font-size: 28px; margin-bottom: 5px; color: #1e1b4b; text-transform: uppercase; letter-spacing: 1px; }
-            h2 { font-size: 18px; margin-top: 0; color: #4f46e5; font-weight: normal; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
-            h3 { font-size: 16px; margin-bottom: 3px; color: #1e293b; }
-            .meta { font-size: 13px; color: #64748b; margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 15px; }
-            .section { margin-bottom: 25px; }
-            .section-title { font-size: 16px; font-weight: bold; text-transform: uppercase; color: #1e1b4b; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 12px; }
-            .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-            .project-card { border: 1px solid #e2e8f0; padding: 12px; border-radius: 6px; }
-            .skills-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
-            .skill-tag { background: #f1f5f9; color: #334155; font-size: 12px; padding: 4px 10px; border-radius: 9999px; font-weight: 500; }
-            .edu-item { margin-bottom: 15px; }
-            @media print { body { padding: 0; } .no-print { display: none; } }
-          </style>
-        </head>
-        <body>
-          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-            <div>
-              <h1>${PERSONAL_INFO.name}</h1>
-              <h2>MERN Stack Developer | React.js Developer</h2>
-            </div>
-            <div style="text-align: right; font-size: 12px; color: #475569;">
-              <div>📍 ${PERSONAL_INFO.location}</div>
-              <div>📞 ${PERSONAL_INFO.phone}</div>
-              <div>✉️ ${PERSONAL_INFO.email}</div>
-            </div>
-          </div>
-          <div class="meta">
-            <div>🔗 <b>Github:</b> github.com/matiurrehmanmarwatkhan</div>
-            <div>🔗 <b>LinkedIn:</b> linkedin.com/in/mati-ur-rehman-8bbb44376</div>
-          </div>
-          <div class="section">
-            <div class="section-title">About Me</div>
-            <p style="margin: 0; font-size: 14px; text-align: justify;">${PERSONAL_INFO.about}</p>
-          </div>
-          <div class="section">
-            <div class="section-title">Skills & Tech Stack</div>
-            <div class="skills-wrap">
-              <span class="skill-tag">React.js</span>
-              <span class="skill-tag">Node.js</span>
-              <span class="skill-tag">Express.js</span>
-              <span class="skill-tag">MongoDB</span>
-              <span class="skill-tag">JavaScript (ES6+)</span>
-              <span class="skill-tag">Tailwind CSS</span>
-              <span class="skill-tag">RESTful APIs</span>
-              <span class="skill-tag">Mongoose ODM</span>
-              <span class="skill-tag">HTML5 & CSS3</span>
-              <span class="skill-tag">Git & GitHub</span>
-              <span class="skill-tag">Postman</span>
-            </div>
-          </div>
-          <div class="section">
-            <div class="section-title">Projects</div>
-            <div style="margin-bottom: 15px;">
-              <h3><b>React Dashboard:</b> Premium Admin Dashboard</h3>
-              <p style="margin: 0 0 5px 0; font-size: 13px;">Built a completely responsive telemetry admin dashboard incorporating reusable analytical components, status indicators, and clean layout patterns in React.</p>
-              <small style="color: #4f46e5;">Technologies: React.js, JavaScript, Tailwind CSS, Recharts</small>
-            </div>
-            <div style="margin-bottom: 15px;">
-              <h3><b>Hackathon E-Commerce:</b> High-Speed Storefront</h3>
-              <p style="margin: 0 0 5px 0; font-size: 13px;">Created a responsive product showcase and shopping experience under a 24-hour competition timeline.</p>
-              <small style="color: #4f46e5;">Technologies: HTML5, CSS3, ES6 JavaScript</small>
-            </div>
-          </div>
-          <div class="section">
-            <div class="section-title">Education</div>
-            <div class="edu-item">
-              <div style="display: flex; justify-content: space-between;">
-                <b>Saylani Mass IT Training (SMIT)</b>
-                <span>2025 - Present</span>
-              </div>
-              <div style="font-size: 13px; color: #475569;">Web Development Diploma, Peshawar Campus</div>
-            </div>
-            <div class="edu-item">
-              <div style="display: flex; justify-content: space-between;">
-                <b>Government Higher Secondary School Darra Pezu</b>
-                <span>2023 - 2025</span>
-              </div>
-              <div style="font-size: 13px; color: #475569;">FSc Computer Science (Intermediate)</div>
-            </div>
-          </div>
-          <div class="no-print" style="margin-top: 35px; text-align: center;">
-            <button onclick="window.print()" style="background: #4f46e5; color: white; border: none; padding: 10px 24px; border-radius: 6px; font-weight: bold; cursor: pointer;">Print / Download PDF Resume</button>
-          </div>
-        </body>
-      </html>
-    `;
-    const win = window.open("", "_blank");
-    if (win) {
-      win.document.write(resumeHTML);
-      win.document.close();
-    }
-  };
+  // 3. CV PDF direct link is handled directly in the CTA buttons below
 
   return (
     <section
@@ -222,8 +123,10 @@ export const Hero: React.FC = () => {
               </a>
 
               <a
-                href="#resume"
-                onClick={handlePrintResume}
+                href={cvPdf}
+                download="Mati_Ur_Rehman_CV.pdf"
+                target="_blank"
+                rel="noreferrer"
                 className="w-full sm:w-auto inline-flex justify-center items-center space-x-2 px-6 py-3 border border-zinc-350 dark:border-zinc-700 rounded-xl hover:bg-zinc-200/50 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 transform hover:-translate-y-1 transition-all duration-300 font-semibold cursor-pointer"
               >
                 <FileText className="w-4 h-4 text-sky-500 dark:text-sky-450" />

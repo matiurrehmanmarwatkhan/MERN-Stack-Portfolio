@@ -8,7 +8,6 @@ import { Projects } from "./components/Projects";
 import { Education } from "./components/Education";
 import ArchitectureDocs from "./components/ArchitectureDocs";
 import { Contact } from "./components/Contact";
-import { AiAssistant } from "./components/AiAssistant";
 import { Footer } from "./components/Footer";
 
 export default function App() {
@@ -73,8 +72,6 @@ export default function App() {
           <Contact />
         </main>
 
-        {/* Floating recruiter chat widget */}
-        <AiAssistant />
 
         {/* Bottom index layout */}
         <Footer />

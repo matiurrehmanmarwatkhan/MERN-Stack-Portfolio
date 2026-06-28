@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useTheme } from "./ThemeContext";
-import { Sun, Moon, Menu, X, ArrowUpRight, Cpu } from "lucide-react";
+import { Menu, X, ArrowUpRight, Cpu } from "lucide-react";
 
 interface NavLinkProps {
   href: string;
@@ -22,7 +21,7 @@ const NavLink: React.FC<NavLinkProps> = ({ href, label, onClick }) => {
 };
 
 export const Navbar: React.FC = () => {
-  const { theme, toggleTheme } = useTheme();
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -93,18 +92,8 @@ export const Navbar: React.FC = () => {
               ))}
             </div>
 
-            {/* Control Widgets (Theme selector & CTA) */}
+            {/* Control Widgets (CTA only) */}
             <div className="hidden md:flex items-center space-x-4">
-              {/* Theme toggler */}
-              <button
-                id="theme-toggle-btn"
-                onClick={toggleTheme}
-                aria-label="Toggle theme mode"
-                className="p-2 rounded-full text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 transition-all duration-300"
-              >
-                {theme === "dark" ? <Sun className="w-5 h-5 text-yellow-400" /> : <Moon className="w-5 h-5" />}
-              </button>
-
               <a
                 href="#contact"
                 className="px-4 py-1.5 bg-zinc-800 dark:bg-zinc-800 text-white rounded-full text-sm font-medium hover:bg-sky-500 dark:hover:bg-sky-400 hover:text-black dark:hover:text-black hover:scale-105 active:scale-95 transition-all duration-300 border border-zinc-700 shadow-sm"
@@ -115,15 +104,6 @@ export const Navbar: React.FC = () => {
 
             {/* Mobile Nav Button */}
             <div className="flex md:hidden items-center space-x-3">
-              {/* Theme toggle for mobile */}
-              <button
-                onClick={toggleTheme}
-                aria-label="Toggle theme mode"
-                className="p-2 rounded-full text-slate-600 dark:text-slate-300"
-              >
-                {theme === "dark" ? <Sun className="w-5 h-5 text-yellow-400" /> : <Moon className="w-5 h-5" />}
-              </button>
-
               <button
                 id="mobile-menu-btn"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
