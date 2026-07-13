@@ -54,6 +54,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: "Frontend Engineering",
     skills: [
       { name: "React.js", level: 90, iconName: "Code2" },
+      { name: "React Native", level: 85, iconName: "Atom" },
       { name: "JavaScript (ES6+)", level: 88, iconName: "CornerDownRight" },
       { name: "Tailwind CSS", level: 95, iconName: "Palette" },
       { name: "HTML5 & CSS3", level: 95, iconName: "FileHtml" },
@@ -152,6 +153,71 @@ export const PROJECTS: Project[] = [
     githubUrl:
       "https://github.com/matiurrehmanmarwatkhan/The-East-Junction-Frontend",
     liveUrl: "https://the-east-junction-frontend.vercel.app",
+    category: "Full-Stack",
+  },
+  {
+    id: "proj-5",
+    title: "Chief Grill",
+    description:
+      "A full-stack web application for a restaurant, featuring a dynamic menu, user authentication, and an admin panel for managing orders. Built with React.js for the frontend and Node.js/Express.js for the backend, with MongoDB as the database.",
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT Authentication",
+    ],
+    githubUrl: "https://github.com/matiurrehmanmarwatkhan/Chief-Grill-Frontend",
+    liveUrl: "https://chief-grill-frontend.vercel.app",
+    category: "Full-Stack",
+  },
+  {
+    id: "proj-6",
+    title: "Property Hub",
+    description:
+      "A full-stack web application for a real estate platform, featuring property listings, user authentication, and an admin panel for managing properties. Built with React.js for the frontend and Node.js/Express.js for the backend, with MongoDB as the database.",
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT Authentication",
+    ],
+    githubUrl: "#",
+    liveUrl: "#",
+    category: "Full-Stack",
+  },
+  {
+    id: "proj-7",
+    title: "FreelancePk",
+    description:
+      "A full-stack web application for a freelance platform, featuring project listings, user authentication, and an admin panel for managing projects. Built with React.js for the frontend and Node.js/Express.js for the backend, with MongoDB as the database.",
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT Authentication",
+    ],
+    githubUrl:
+      "https://github.com/matiurrehmanmarwatkhan/Freelancer-PK-Frontend",
+    liveUrl: "https://freelancer-pk.vercel.app",
+    category: "Full-Stack",
+  },
+  {
+    id: "proj-8",
+    title: "NursePulse",
+    description:
+      "A full-stack web application for a healthcare platform, featuring patient management, appointment scheduling, and an admin panel for managing users. Built with React.js for the frontend and Node.js/Express.js for the backend, with MongoDB as the database.",
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT Authentication",
+    ],
+    githubUrl: "https://github.com/matiurrehmanmarwatkhan/Nurse-Pulse-Frontend",
+    liveUrl: "https://nurse-pulse-frontend.vercel.app",
     category: "Full-Stack",
   },
 ];
